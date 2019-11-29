@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
 
     onFormSubmit = (event) => {
       event.preventDefault();
-      this.props.onSubmit(this.state.term)
+      this.props.onSubmit(this.state.term) //this.props.onSubmit means input the current state of the seachBar anywhere in App.js called onSubmit
     };
 
   render() {
