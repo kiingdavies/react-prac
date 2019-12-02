@@ -1,7 +1,9 @@
 import React from "react";
-import SearchBar from "./SearchBar";
-// import youtube from "../apis/youtube";
 import YTSearch from "youtube-api-search";
+// import youtube from "../apis/youtube";
+
+import SearchBar from "./SearchBar";
+import VideoList from "./VideoList";
 
 const API_KEY = "AIzaSyC155gl9ebjiGxd5cYGPkxt36STlGarSbs";
 
@@ -17,7 +19,7 @@ class App extends React.Component {
     //     });
     //     console.log(response);
 
-    this.searchYT(term); 
+    this.searchYT(term);
   };
 
   searchYT = async term => {
@@ -31,6 +33,7 @@ class App extends React.Component {
       <div className="ui container">
         <SearchBar onFormSubmit={this.onTermSubmit} />
         Found {this.state.videos.length} videos.
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
