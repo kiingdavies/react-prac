@@ -4,11 +4,13 @@ import YTSearch from "youtube-api-search";
 
 import SearchBar from "./SearchBar";
 import VideoList from "./VideoList";
+import VideoDetail from "./VideoDetail";
 
+//Youtube API key
 const API_KEY = "AIzaSyC155gl9ebjiGxd5cYGPkxt36STlGarSbs";
 
 class App extends React.Component {
-  state = { videos: [] };
+  state = { videos: [], selectedVideo: null };
 
   onTermSubmit = term => {
     //call back method called when user clicks submit
@@ -28,12 +30,20 @@ class App extends React.Component {
     });
   };
 
+  onVideoSelect = video => {
+    this.setState({ selectedVideo: video });
+  };
+
   render() {
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.onTermSubmit} />
         Found {this.state.videos.length} videos.
-        <VideoList videos={this.state.videos} />
+        <VideoDetail video={this.state.selectedVideo}/>
+        <VideoList
+          onVideoSelect={this.onVideoSelect}
+          videos={this.state.videos}
+        />
       </div>
     );
   }
