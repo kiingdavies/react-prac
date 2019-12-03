@@ -13,7 +13,7 @@ class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
   componentDidMount() {
-    this.onTermSubmit('buildings'); // Buildings is going to be the default searched page on the page
+    this.onTermSubmit('quran reciter'); // quran reciter is going to be the default searched page on the page
   }
 
   onTermSubmit = term => {
